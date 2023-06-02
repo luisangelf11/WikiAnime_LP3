@@ -1,0 +1,223 @@
+﻿@page "/animes"
+@inject IJSRuntime JavaScript
+
+@if(!IsModalOpen){
+@if (!ShowForm)
+{
+    <h3>Lista De Animes (@Animes.Count)</h3>
+    <div class="mb-2">
+        <button class="btn btn-success" @onclick="()=>{ShowForm = !ShowForm;}">
+            Agregar
+        </button>
+    </div>
+}
+<div class="container">
+    @if (ShowForm)
+    {
+        <h3>@TituloForm</h3>
+        <EditForm Model="request" OnValidSubmit="Send">
+            <DataAnnotationsValidator />
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Nombre</label>
+                <InputText placeholder="Nombre del anime" class="form-control" @bind-Value="request.Nombre"></InputText>
+            </div>
+            <ValidationMessage For="@(()=> request.Nombre)" />
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Descripcion</label>
+                <InputText placeholder="Descripcion" class="form-control" @bind-Value="request.Descripcion"></InputText>
+            </div>
+            <ValidationMessage For="@(()=> request.Descripcion)" />
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Portada</label>
+                <InputText placeholder="https://ejemplo.com" class="form-control" @bind-Value="request.Portada"></InputText>
+            </div>
+            <ValidationMessage For="@(()=> request.Portada)" />
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Autor</label>
+                <InputText placeholder="Autor" class="form-control" @bind-Value="request.Autor"></InputText>
+            </div>
+            <ValidationMessage For="@(()=> request.Autor)" />
+            <div class="btn-group">
+                <button type="submit" class="btn btn-outline-success">Guardar</button>
+                <button @onclick="Cancelar" class="btn btn-outline-danger">Cancelar</button>
+            </div>
+        </EditForm>
+        <br />
+    }
+    else
+    {
+        <div class="row">
+        @foreach (var anime in Animes)
+        {
+                <div class="card m-2 col-6 d-flex align-items-center" style="width: 20rem;">
+                <img src="@anime.Portada" class="card-img-top" alt="@anime.Nombre">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-uppercase p-2"><b>@anime.Nombre</b></h5>
+                    <p class="card-text">@anime.Descripcion</p>
+                    <p><b>Autor:</b> @anime.Autor</p> 
+                    <div class="btn-group">
+                        <button class="btn btn-warning" @onclick="()=>Seleccionar(anime.Id)">
+                            <span class="oi oi-pencil"></span>
+                        </button>
+                        <button class="btn btn-danger" @onclick="()=>Eliminar(anime)">
+                            <span class="oi oi-trash"></span>
+                        </button>
+                        <button class="btn btn-dark" @onclick="()=>VerNoPersonajes(anime.Id, anime.Nombre)">
+                                <span class="oi oi-people" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <br/>
+                        <br />
+                        <a href="https://www3.animeflv.net/browse?q=@anime.Nombre" class="btn btn-primary" target="_blank">
+                            <span class="oi oi-eye"></span> Ver Ahora
+                        </a>
+                </div>
+            </div>
+        }
+        </div>
+    }
+</div>
+    }
+<Modal IsOpen="@IsModalOpen" Title="@NameModal">
+    <div class="row">
+        @foreach (var p in Personajes)
+        {
+            <div class="m-2 col-6 d-flex align-items-center" style="width: 19rem">
+                <div class="card-body">
+                    <img src="@p.Imagen" class="card-img rounded-2" alt="" />
+                    <p class="text-center text-uppercase p-2"><b>@p.Nombre</b></p>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="modal-footer">
+        <button @onclick="CloseModal" class="btn btn-danger">Cancelar</button>
+    </div>
+</Modal>
+@code {
+    public string TituloForm => request.Id == 0 ? "Agregar Anime" : "Modificar Anime";
+    public bool ShowForm { get; set; } = false;
+    public List<AnimeResponse> Animes { get; set; }
+        = new List<AnimeResponse>();
+
+    public List<PersonajeResponse> Personajes { get; set; } = new List<PersonajeResponse>();
+
+    public string Filtro { get; set; } = "";
+    public string NameModal { get; set; } = "";
+    public bool IsModalOpen { get; set; }
+
+    public AnimeRequest request { get; set; } = new AnimeRequest();
+
+    //Ver ventana modal
+    private void OpenModal()
+    {
+        IsModalOpen = true;
+    }
+
+    private void CloseModal()
+    {
+        IsModalOpen = false;
+    }
+
+    //Cargar Animes desde la BD
+    async Task CargarAnime()
+    {
+        var resultado = await animeServices.Consultar(Filtro);
+        if (resultado.Success)
+        {
+            Animes = resultado.Data!;
+        }
+    }
+
+    //Inicializar Componentes
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarAnime();
+    }
+
+    //Cancelar 
+    void Cancelar()
+    {
+        request = new AnimeRequest();
+        ShowForm = false;
+    }
+
+    //Enviar Formulario
+    public async Task Send()
+    {
+        if (request.Id == 0)
+        {
+            //Crear
+            var result = await animeServices.Crear(request);
+            if (result.Success)
+            {
+                Cancelar();
+                await CargarAnime();
+                StateHasChanged();
+            }
+        }
+        else
+        {
+            //Modificar
+            var result = await animeServices.Modificar(request);
+            if (result.Success)
+            {
+                Cancelar();
+                await CargarAnime();
+                StateHasChanged();
+            }
+        }
+    }
+
+    //Seleccionar un Anime
+    public void Seleccionar(int Id)
+    {
+        ShowForm = true;
+        request = Animes.Where(a=> a.Id == Id)
+        .Select(c => c.ToRequest())
+        .FirstOrDefault()??new AnimeRequest();
+    }
+
+    //Eliminar
+    public async Task Eliminar(AnimeResponse anime)
+    {
+        bool respuesta = await JavaScript.InvokeAsync<bool>("confirm", $"¿Estas seguro de eliminar al anime {anime.Nombre}?");
+        if (respuesta)
+        {
+            var resultado = await animeServices.Eliminar(anime.ToRequest());
+            if (resultado.Success)
+            {
+                await CargarAnime();
+                StateHasChanged();
+                await JavaScript.InvokeVoidAsync("alert", "Anime eliminado!");
+            }
+        }
+    }
+
+    //Ver cuantos personajes de ese anime hay registrados
+    public async Task VerNoPersonajes(int id, string nombre)
+    {
+        var result = await personajeServices.ConsultarNoPersonajes(id);
+        if (result.Success)
+        {
+            if(result.Data > 0)
+            {
+                bool answer = await JavaScript.InvokeAsync<bool>("confirm", $"¿Deseas ver cuales personajes registrados pertenecen a {nombre}?");
+                if (answer)
+                {
+                    var r = await personajeServices.ConsultarPersonajesDeUnAnime(id);
+                    if (r.Success)
+                    {
+                        NameModal = $"Personajes de {nombre} ({result.Data})";
+                        Personajes = r.Data!;
+                        OpenModal();
+                    }
+                }
+            }
+            else
+            {
+                await JavaScript.InvokeVoidAsync("alert", "Este anime no tiene personajes registrados");
+            }
+        }
+    }
+}

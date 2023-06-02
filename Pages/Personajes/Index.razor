@@ -1,0 +1,168 @@
+﻿@page "/personajes"
+@inject IJSRuntime JavaScript
+
+@if (!ShowForm)
+{
+    <h3>Lista De Personajes (@Personajes.Count)</h3>
+    <div class="mb-2">
+        <button class="btn btn-success" @onclick="()=>{ShowForm = !ShowForm;}">
+            Agregar
+        </button>
+    </div>
+}
+
+<div class="container">
+    @if (ShowForm)
+    {
+        <h3>@TituloForm</h3>
+        <EditForm Model="request" OnValidSubmit="Send">
+            <DataAnnotationsValidator />
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Nombre</label>
+                <InputText placeholder="Nombre del personaje" class="form-control" @bind-Value="request.Nombre"></InputText>
+            </div>
+            <ValidationMessage For="@(()=> request.Nombre)" />
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Image</label>
+                <InputText placeholder="https://ejemplo.com" class="form-control" @bind-Value="request.Imagen"></InputText>
+            </div>
+            <ValidationMessage For="@(()=>request.Imagen)"/>
+            <div class="mb-3 input-group">
+                <label class="input-group-text">Anime</label>
+                <select class="form-control" @bind="request.AnimeId">
+                    <option disabled>Selecciona un Anime</option>
+                    @foreach (var anime in Animes)
+                    {
+                        <option value="@anime.Id">@anime.Nombre</option>
+                    }
+                </select>
+            </div>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-outline-success">Guardar</button>
+                <button @onclick="Cancelar" class="btn btn-outline-danger">Cancelar</button>
+            </div>
+        </EditForm>
+        <br />
+    }
+    else
+    {
+        <div class="row">
+            @foreach(var personaje in Personajes)
+            {
+                <div class="card m-2" style="width: 20rem;">
+                    <img src="@personaje.Imagen" class="card-img-top" alt="@personaje.Nombre">
+                    <div class="card-body">
+                        <p><b>Personaje:</b> @personaje.Nombre</p>
+                        <p><b>Anime:</b> @personaje.NombreAnime</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="btn-group">
+                            <button class="btn btn-warning" @onclick="()=>Seleccionar(personaje.Id)">
+                                <span class="oi oi-pencil"></span>
+                            </button>
+                            <button class="btn btn-danger" @onclick="()=>Eliminar(personaje)">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    public string TituloForm => request.Id == 0 ? "Agregar Personaje" : "Modificar Personaje";
+    public bool ShowForm { get; set; } = false;
+    public List<PersonajeResponse> Personajes { get; set; }
+        = new List<PersonajeResponse>();
+
+    public List<AnimeResponse> Animes { get; set; } = new List<AnimeResponse>();
+    public string Filtro { get; set; } = "";
+
+    public PersonajeRequest request { get; set; } = new PersonajeRequest();
+
+    //Cargar personajes desde la BD
+    async Task CargarPersonajes()
+    {
+        var result = await personajeServices.Consultar(Filtro);
+        if (result.Success)
+        {
+            Personajes = result.Data!;
+        }
+    }
+    //cargar animes desde la BD
+    async Task CargarAnimes()
+    {
+        var result = await animeServices.Consultar(Filtro);
+        if (result.Success)
+        {
+            Animes = result.Data!;
+        }
+    }
+    //Metodo inicializador
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarPersonajes();
+        await CargarAnimes();
+    }
+
+    //Enviar Formulario
+    public async Task Send()
+    {
+        if(request.Id == 0)
+        {
+            //CREAR PERSONAJE
+            var resultado = await personajeServices.Crear(request);
+            if (resultado.Success)
+            {
+                Cancelar();
+                await CargarPersonajes();
+                StateHasChanged();
+            }
+        }
+        else
+        {
+            //CREAR PERSONAJE
+            var resultado = await personajeServices.Modificar(request);
+            if (resultado.Success)
+            {
+                Cancelar();
+                await CargarPersonajes();
+                StateHasChanged();
+            }
+        }
+    }
+
+    //Eliminar 
+    public async Task Eliminar(PersonajeResponse personaje)
+    {
+        bool respuesta = await JavaScript.InvokeAsync<bool>("confirm", $"¿Estas seguro de eliminar a {personaje.Nombre}?");
+        if (respuesta)
+        {
+            var resultado = await personajeServices.Eliminar(personaje.ToRequest());
+            if (resultado.Success)
+            {
+                await CargarPersonajes();
+                StateHasChanged();
+                await JavaScript.InvokeVoidAsync("alert", "Anime eliminado!");
+            }
+        }
+    }
+
+    //Seleccionar un personaje de mi lista
+    public void Seleccionar(int Id)
+    {
+        ShowForm = true;
+        request = Personajes.Where(p => p.Id == Id)
+        .Select(p => p.ToRequest())
+        .FirstOrDefault() ?? new PersonajeRequest();
+    }
+
+    //Cancelar
+    void Cancelar()
+    {
+        request = new PersonajeRequest();
+        ShowForm = false;
+    }
+}
