@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\lp3\\wikianime\\WikiAnime.csproj": {}
+    "C:\\LP3\\WikiAnime\\WikiAnime.csproj": {}
   },
   "projects": {
-    "C:\\lp3\\wikianime\\WikiAnime.csproj": {
+    "C:\\LP3\\WikiAnime\\WikiAnime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\lp3\\wikianime\\WikiAnime.csproj",
+        "projectUniqueName": "C:\\LP3\\WikiAnime\\WikiAnime.csproj",
         "projectName": "WikiAnime",
-        "projectPath": "C:\\lp3\\wikianime\\WikiAnime.csproj",
+        "projectPath": "C:\\LP3\\WikiAnime\\WikiAnime.csproj",
         "packagesPath": "C:\\Users\\Luis Angel\\.nuget\\packages\\",
-        "outputPath": "C:\\lp3\\wikianime\\obj\\",
+        "outputPath": "C:\\LP3\\WikiAnime\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Luis Angel\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -30,7 +30,7 @@
             <div class="mb-3 input-group">
                 <label class="input-group-text">Anime</label>
                 <select class="form-control" @bind="request.AnimeId">
-                    <option disabled>Selecciona un Anime</option>
+                    <option value="">Selecciona un Anime</option>
                     @foreach (var anime in Animes)
                     {
                         <option value="@anime.Id">@anime.Nombre</option>

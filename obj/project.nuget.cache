@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QTLEfwD+dHEf8S8Tz1wMs1SSABUITIt9rTxQ1KNlLwQAWaXj+LvqqrFLEdFb4w1MKpkbiGZR0QcAf9qgXDHwXA==",
+  "dgSpecHash": "clA+UDK6xfdBCjJhYLEVvIw7jaevLy0WUuykSIGPl8qvw6JcUiGiC/GdWlcwJxdkVUyHqFdujGrBmL+tulwhrA==",
   "success": true,
-  "projectFilePath": "C:\\lp3\\wikianime\\WikiAnime.csproj",
+  "projectFilePath": "C:\\LP3\\WikiAnime\\WikiAnime.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Luis Angel\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Luis Angel\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Zt4vF4ap3EHfLbiAjWyJ3AZChN8Zt8x6xfiwL+1kviw=",
+  "Hash": "nP4kGiaP1djdFtz4Fn8CX28/3h/s9WM8UiHSBGwxEtg=",
   "Source": "WikiAnime",
   "BasePath": "_content/WikiAnime",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "WikiAnime\\wwwroot",
       "Source": "WikiAnime",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\lp3\\wikianime\\obj\\Debug\\net7.0\\scopedcss\\bundle\\WikiAnime.styles.css",
+      "Identity": "C:\\LP3\\WikiAnime\\obj\\Debug\\net7.0\\scopedcss\\bundle\\WikiAnime.styles.css",
       "SourceId": "WikiAnime",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\lp3\\wikianime\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "WikiAnime.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\lp3\\wikianime\\obj\\Debug\\net7.0\\scopedcss\\bundle\\WikiAnime.styles.css"
+      "OriginalItemSpec": "C:\\LP3\\WikiAnime\\obj\\Debug\\net7.0\\scopedcss\\bundle\\WikiAnime.styles.css"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WikiAnime.bundle.scp.css",
+      "Identity": "C:\\LP3\\WikiAnime\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WikiAnime.bundle.scp.css",
       "SourceId": "WikiAnime",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\lp3\\wikianime\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "WikiAnime.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\lp3\\wikianime\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WikiAnime.bundle.scp.css"
+      "OriginalItemSpec": "C:\\LP3\\WikiAnime\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WikiAnime.bundle.scp.css"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\css\\site.css",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\css\\site.css",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\lp3\\wikianime\\wwwroot\\favicon.png",
+      "Identity": "C:\\LP3\\WikiAnime\\wwwroot\\favicon.png",
       "SourceId": "WikiAnime",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\lp3\\wikianime\\wwwroot\\",
+      "ContentRoot": "C:\\LP3\\WikiAnime\\wwwroot\\",
       "BasePath": "_content/WikiAnime",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
