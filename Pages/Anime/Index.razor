@@ -1,6 +1,8 @@
 ﻿@page "/animes"
 @inject IJSRuntime JavaScript
 
+<PageTitle>Animes</PageTitle>
+
 @if(!IsModalOpen){
 @if (!ShowForm)
 {
@@ -15,7 +17,7 @@
     @if (ShowForm)
     {
         <h3>@TituloForm</h3>
-        <EditForm Model="request" OnValidSubmit="Send">
+            <EditForm Model="request" OnValidSubmit="Send" data-aos="fade-down">
             <DataAnnotationsValidator />
             <div class="mb-3 input-group">
                 <label class="input-group-text">Nombre</label>
@@ -49,7 +51,7 @@
         <div class="row">
         @foreach (var anime in Animes)
         {
-                <div class="card m-2 col-6 d-flex align-items-center" style="width: 20rem;">
+                <div data-aos="zoom-in-up" class="card m-2 col-6 d-flex align-items-center" style="width: 20rem;">
                 <img src="@anime.Portada" class="card-img-top" alt="@anime.Nombre">
                 <div class="card-body">
                     <h5 class="card-title text-center text-uppercase p-2"><b>@anime.Nombre</b></h5>
