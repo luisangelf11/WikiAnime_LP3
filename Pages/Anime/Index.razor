@@ -6,14 +6,21 @@
 @if(!IsModalOpen){
 @if (!ShowForm)
 {
-    <h3>Lista De Animes (@Animes.Count)</h3>
-    <div class="mb-2">
-        <button class="btn btn-success" @onclick="()=>{ShowForm = !ShowForm;}">
-            Agregar
-        </button>
+        <div class="card mx-auto" style="width:500px;" data-aos="fade-down">
+        <div class="card-header">
+        <h3 class="text-center">Registra un Anime</h3>
+        </div>
+        <div class="card-body text-center">
+        <p>Presiona este botón de acá para poder registrar un nuevo anime</p>
+        <div class="mb-2">
+            <button class="btn btn-success" @onclick="()=>{ShowForm = !ShowForm;}">
+                Agregar
+            </button>
+        </div>
+        </div>
     </div>
 }
-<div class="container">
+<div class="container mt-3">
     @if (ShowForm)
     {
         <h3>@TituloForm</h3>
@@ -48,35 +55,40 @@
     }
     else
     {
-        <div class="row">
-        @foreach (var anime in Animes)
-        {
-                <div data-aos="zoom-in-up" class="card m-2 col-6 d-flex align-items-center" style="width: 20rem;">
-                <img src="@anime.Portada" class="card-img-top" alt="@anime.Nombre">
-                <div class="card-body">
-                    <h5 class="card-title text-center text-uppercase p-2"><b>@anime.Nombre</b></h5>
-                    <p class="card-text">@anime.Descripcion</p>
-                    <p><b>Autor:</b> @anime.Autor</p> 
-                    <div class="btn-group">
-                        <button class="btn btn-warning" @onclick="()=>Seleccionar(anime.Id)">
-                            <span class="oi oi-pencil"></span>
-                        </button>
-                        <button class="btn btn-danger" @onclick="()=>Eliminar(anime)">
-                            <span class="oi oi-trash"></span>
-                        </button>
-                        <button class="btn btn-dark" @onclick="()=>VerNoPersonajes(anime.Id, anime.Nombre)">
-                                <span class="oi oi-people" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <br/>
-                        <br />
-                        <a href="https://www3.animeflv.net/browse?q=@anime.Nombre" class="btn btn-primary" target="_blank">
-                            <span class="oi oi-eye"></span> Ver Ahora
-                        </a>
+            <h3 class="text-center p-4 text-uppercase">
+                <b>
+                    Lista De Animes (@Animes.Count)
+                </b>
+            </h3>
+                <div class="row">
+                    @foreach (var anime in Animes)
+                    {
+                        <div data-aos="zoom-in-up" class="card m-2 col-6 d-flex align-items-center" style="width: 20rem;">
+                            <img src="@anime.Portada" class="card-img-top" style="width:250px;height:auto;object-fit:cover;" alt="@anime.Nombre">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-uppercase p-2"><b>@anime.Nombre</b></h5>
+                                <p class="card-text">@anime.Descripcion</p>
+                                <p><b>Autor:</b> @anime.Autor</p>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning" @onclick="()=>Seleccionar(anime.Id)">
+                                        <span class="oi oi-pencil"></span>
+                                    </button>
+                                    <button class="btn btn-danger" @onclick="()=>Eliminar(anime)">
+                                        <span class="oi oi-trash"></span>
+                                    </button>
+                                    <button class="btn btn-dark" @onclick="()=>VerNoPersonajes(anime.Id, anime.Nombre)">
+                                        <span class="oi oi-people" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                                <br />
+                                <br />
+                                <a href="https://www3.animeflv.net/browse?q=@anime.Nombre" class="btn btn-primary" target="_blank">
+                                    <span class="oi oi-eye"></span> Ver Ahora
+                                </a>
+                            </div>
+                        </div>
+                    }
                 </div>
-            </div>
-        }
-        </div>
     }
 </div>
     }

@@ -5,15 +5,27 @@
 
 @if (!ShowForm)
 {
-    <h3>Lista De Personajes (@Personajes.Count)</h3>
-    <div class="mb-2">
-        <button class="btn btn-success" @onclick="()=>{ShowForm = !ShowForm;}">
-            Agregar
-        </button>
+    <div class="card mx-auto" style="width:500px;" data-aos="fade-down">
+        <div class="card-header">
+            <h3 class="text-center">Registre un personaje</h3>
+        </div>
+        <div class="card-body text-center">
+            <p>Presiona este botón de acá para poder registrar un nuevo personaje.
+                <br/>
+                <em>Nota: El campo anime cargará los animes que han sido guardados en la
+                    pestaña de animes.
+                </em>
+            </p>
+            <div class="mb-2">
+                <button class="btn btn-success" @onclick="()=>{ShowForm = !ShowForm;}">
+                    Agregar
+                </button>
+            </div>
+        </div>
     </div>
 }
 
-<div class="container">
+<div class="container mt-3">
     @if (ShowForm)
     {
         <h3>@TituloForm</h3>
@@ -48,6 +60,11 @@
     }
     else
     {
+        <h3 class="text-center p-4 text-uppercase">
+            <b>
+                Lista De Personajes (@Personajes.Count)
+            </b>
+        </h3>
         <div class="row">
             @foreach(var personaje in Personajes)
             {
